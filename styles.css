@@ -1,0 +1,19 @@
+a.nav-link.active {
+ background-color: rgb(169, 170, 228);
+ color: white;
+}
+
+thead {
+  background-color: rgb(68, 66, 194);
+  color: white;
+}
+
+.card-header {
+  background-color: rgb(68, 66, 194);
+  color: white;
+}
+
+.card-body {
+  background-color: rgb(169, 170, 228);
+  color: white;
+} 
