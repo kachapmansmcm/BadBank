@@ -1,9 +1,10 @@
 function Withdraw(props) {
-  if(props.user == null){
-    return <Redirect to='/' /> 
+  if (props.user == null) {
+    return <Redirect to="/" />;
   }
   const [status, setStatus] = React.useState("");
   const [withdrawAmount, setWithdrawAmount] = React.useState(0);
+  const [disableButton, setDisableButton] = React.useState(true);
   const ctx = React.useContext(UserContext);
   const index = ctx.users.findIndex((user) => user.name == props.user.name);
   const [balance, setBalance] = React.useState(
@@ -42,6 +43,7 @@ function Withdraw(props) {
     ctx.users[index].currentBalance = newBalance.toFixed(2);
     setStatus("Success: Your new balance is: $" + newBalance.toFixed(2));
     setWithdrawAmount(0);
+    setDisableButton(true);
     setTimeout(() => setStatus(""), 3000);
   };
 
@@ -66,12 +68,16 @@ function Withdraw(props) {
             id="withDrawAmount"
             placeholder="Enter Withdraw Amount"
             value={Number(withdrawAmount).toFixed(2)}
-            onChange={(e) => setWithdrawAmount(e.currentTarget.value)}
+            onChange={(e) => {
+              setWithdrawAmount(e.currentTarget.value);
+              setDisableButton(false);
+            }}
           />
           <br />
           <button
             type="submit"
             className="btn btn-light"
+            disabled={disableButton}
             onClick={handleWithdraw}
           >
             Withdraw Amount
