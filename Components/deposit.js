@@ -3,7 +3,7 @@ function Deposit(props) {
     return <Redirect to='/' /> 
   }
   const [status, setStatus] = React.useState("");
-  const [depositAmount, setDepositAmount] = React.useState(0.0);
+  const [depositAmount, setDepositAmount] = React.useState(0);
   const ctx = React.useContext(UserContext);
   const index = ctx.users.findIndex((user) => user.name == props.user.name);
   const [balance, setBalance] = React.useState(
@@ -36,7 +36,7 @@ function Deposit(props) {
     setBalance(newBalance.toFixed(2));
     ctx.users[index].currentBalance = newBalance.toFixed(2);
     setStatus("Success: Your new balance is: $" + newBalance.toFixed(2));
-    setDepositAmount(0.0);
+    setDepositAmount(0);
     setTimeout(() => setStatus(""), 3000);
   };
 
@@ -60,7 +60,7 @@ function Deposit(props) {
             className="form-control"
             id="depositAmount"
             placeholder="Enter Deposit Amount"
-            value={depositAmount}
+            value={Number(depositAmount).toFixed(2)}
             onChange={(e) => setDepositAmount(e.currentTarget.value)}
           />
           <br />

@@ -41,7 +41,7 @@ function Withdraw(props) {
     setBalance(newBalance.toFixed(2));
     ctx.users[index].currentBalance = newBalance.toFixed(2);
     setStatus("Success: Your new balance is: $" + newBalance.toFixed(2));
-    setWithdrawAmount(0.0);
+    setWithdrawAmount(0);
     setTimeout(() => setStatus(""), 3000);
   };
 
@@ -65,7 +65,7 @@ function Withdraw(props) {
             className="form-control"
             id="withDrawAmount"
             placeholder="Enter Withdraw Amount"
-            value={withdrawAmount}
+            value={Number(withdrawAmount).toFixed(2)}
             onChange={(e) => setWithdrawAmount(e.currentTarget.value)}
           />
           <br />
