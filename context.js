@@ -1,8 +1,10 @@
 const Route = ReactRouterDOM.Route;
 const Link = ReactRouterDOM.Link;
 const HashRouter = ReactRouterDOM.HashRouter;
+const Redirect = ReactRouterDOM.Redirect;
 const UserContext = React.createContext(null);
 const CurrentPage = React.createContext([location.hash]);
+
 
 function User(name, email, currentBalance, password) {
   this.name = name;

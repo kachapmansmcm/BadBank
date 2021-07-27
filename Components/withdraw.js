@@ -1,8 +1,11 @@
 function Withdraw(props) {
+  if(props.user == null){
+    return <Redirect to='/' /> 
+  }
   const [status, setStatus] = React.useState("");
   const [withdrawAmount, setWithdrawAmount] = React.useState(0);
   const ctx = React.useContext(UserContext);
-  const index = ctx.users.findIndex((user) => user.name == "admin");
+  const index = ctx.users.findIndex((user) => user.name == props.user.name);
   const [balance, setBalance] = React.useState(
     parseFloat(ctx.users[index].currentBalance).toFixed(2)
   );

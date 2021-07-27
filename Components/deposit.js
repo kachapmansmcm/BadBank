@@ -1,4 +1,7 @@
 function Deposit(props) {
+  if(props.user == null){
+    return <Redirect to='/' /> 
+  }
   const [status, setStatus] = React.useState("");
   const [depositAmount, setDepositAmount] = React.useState(0.0);
   const ctx = React.useContext(UserContext);
