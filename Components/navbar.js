@@ -58,61 +58,151 @@ function NavBar(props) {
       break;
   }
 
-  return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex">
-        <a className="navbar-brand" href="#">
-          BadBank
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className="collapse navbar-collapse justify-content-end"
-          id="navbarNav"
-        >
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className={isActiveHome} href="#/" title="Return to Home Page">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={isActiveCreate} href="#/CreateAccount/" title="Create a new account">
-                Create Account
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={isActiveDeposit} href="#/deposit/" title="Deposit new funds">
-                Deposit
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={isActiveWithdraw} href="#/withdraw/" title="Withdraw funds">
-                Withdraw
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={isActiveAllData} href="#/alldata/" title="Show all user's data">
-                AllData
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={isActiveLogin} href="#/login/" title="Switch User">
-                Login
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </>
-  );
+  if (props.user != null) {
+    return (
+      <>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex">
+          <a className="navbar-brand" href="#">
+            BadBank
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div
+            className="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a
+                  className={isActiveHome}
+                  href="#/"
+                  title="Return to Home Page"
+                >
+                  Home
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={isActiveCreate}
+                  href="#/CreateAccount/"
+                  title="Create a new account"
+                >
+                  Create Account
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={isActiveDeposit}
+                  href="#/deposit/"
+                  title="Deposit new funds"
+                >
+                  Deposit
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={isActiveWithdraw}
+                  href="#/withdraw/"
+                  title="Withdraw funds"
+                >
+                  Withdraw
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={isActiveAllData}
+                  href="#/alldata/"
+                  title="Show all user's data"
+                >
+                  AllData
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={isActiveLogin}
+                  href="#/login/"
+                  title="Switch User"
+                >
+                  Login
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex">
+          <a className="navbar-brand" href="#">
+            BadBank
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div
+            className="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a
+                  className={isActiveHome}
+                  href="#/"
+                  title="Return to Home Page"
+                >
+                  Home
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={isActiveCreate}
+                  href="#/CreateAccount/"
+                  title="Create a new account"
+                >
+                  Create Account
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={isActiveAllData}
+                  href="#/alldata/"
+                  title="Show all user's data"
+                >
+                  AllData
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={isActiveLogin}
+                  href="#/login/"
+                  title="Switch User"
+                >
+                  Login
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </>
+    );
+  }
 }

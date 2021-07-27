@@ -15,7 +15,7 @@ function Withdraw(props) {
       return false;
     }
     if (Number(balance) - Number(withdrawAmount) < 0) {
-      setStatus("Error: " + "Balance my not go negative");
+      setStatus("Error: You may not overdraft your account");
       setTimeout(() => setStatus(""), 3000);
       return false;
     }

@@ -2,7 +2,7 @@
 
 function Spa() {
   let admin = new User('admin', 'admin@acme.com', 20, 'password');
-  const [user, setUser] = React.useState(admin);
+  const [user, setUser] = React.useState(null);
   const [userList, setUserList] = React.useState([admin]);
   const [activePage, setActivePage] = React.useState('#/');
   return (
