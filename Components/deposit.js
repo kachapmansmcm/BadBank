@@ -1,9 +1,10 @@
 function Deposit(props) {
-  if(props.user == null){
-    return <Redirect to='/' /> 
+  if (props.user == null) {
+    return <Redirect to="/" />;
   }
   const [status, setStatus] = React.useState("");
   const [depositAmount, setDepositAmount] = React.useState(0);
+  const [disableButton, setDisableButton] = React.useState(true);
   const ctx = React.useContext(UserContext);
   const index = ctx.users.findIndex((user) => user.name == props.user.name);
   const [balance, setBalance] = React.useState(
@@ -37,6 +38,7 @@ function Deposit(props) {
     ctx.users[index].currentBalance = newBalance.toFixed(2);
     setStatus("Success: Your new balance is: $" + newBalance.toFixed(2));
     setDepositAmount(0);
+    setDisableButton(true);
     setTimeout(() => setStatus(""), 3000);
   };
 
@@ -61,12 +63,16 @@ function Deposit(props) {
             id="depositAmount"
             placeholder="Enter Deposit Amount"
             value={Number(depositAmount).toFixed(2)}
-            onChange={(e) => setDepositAmount(e.currentTarget.value)}
+            onChange={(e) => {
+              setDepositAmount(e.currentTarget.value);
+              setDisableButton(false);
+            }}
           />
           <br />
           <button
             type="submit"
             className="btn btn-light"
+            disabled={disableButton}
             onClick={handleDeposit}
           >
             Deposit Amount
